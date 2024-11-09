@@ -1,0 +1,17 @@
+1) launch ec2 instacnce (master Jenkins) connect - > install ansible and Jenkins 
+2)chk ansible installed - > ansible --version - > copy cong file path - > /etc/ansible/ansible.cfg
+3) cat /etc/ansible/ansible.cfg-> copy GitHub path and paste in browser
+4)mean while copy Jenkins ip address and paste in browder and setup installation - > for password copy path in jenkin page and paste it the server commands -> copy password and paste in the Jenkins .
+5)copy GitHub raw file and cd etc/ansible ->  >ansible.cfg (emptying file).-> vim ansible.cfg - > paste the copied GitHub here & save it):qw
+6)go inside same file -> i -> [defaults] -> inventor (uncomment )-> save file :wq
+7) copy other server ip addres - > vim hosts -> go last -> create [sureshservers]->paste otherserver ip address.
+8)ssh-keygen -> enter 3-4 times->cat /root/.ssh/id_ed1234.pub -> key will be created copy that 
+9) connect ec2 instance in other server - > ubuntu user-> vim .ssh/authorized_keys -> paste public key copied
+10)cd /etc/ansible/
+11)cat hosts
+12)ansible sureshservers -m ping -u ubuntu -> yes ->success
+13) ansible sureshservers -m ping -u ubuntu -b  -> yes ->success (root user) ------>connection established
+
+14)ansible sureshservers -m file -a "path=/tmp/testfile state=touch" -u ubuntu -b -------> crearting a file called testfile and storing in directory.
+
+15)remove server instance -- > ls -l /tmp/  ->>same test file will be reflecting
